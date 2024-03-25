@@ -8,6 +8,10 @@ import { useSelectedIndex } from '../../hooks/useSelectedIndex';
 import "./ShowsCarousel.css";
 import { ShowSlide } from '../ShowCarousel/ShowSlide';
 
+// An unchanging value in terms of component state, but really shouldn't be here, should be in a config file where it's universally accessible by the rest of the app.
+const slidesVisible = 5;
+
+// TODO: Component is getting busy, look to moving some logic around into other files, hooks, services, components, whatever else suits.
 export const ShowsCarousel = () => {
   const navigate = useNavigate();
   const showContext = useShowContext();
@@ -16,12 +20,13 @@ export const ShowsCarousel = () => {
   const carouselContentRef = useRef<HTMLDivElement>(null);
   const { width: carouselWidth = 0 } = useResizeObserver({
     ref: carouselContentRef,
+    box: 'border-box',
   });
   // Another example of where a css library in some form would be useful, so we can share such breakpoint variables between css and javascript files.
   const isLargeScreen = useMediaQuery("(min-height: 1080px)");
 
   const handleKeyPress = (e: KeyboardEvent) => {
-    // TODO: Magic string alert.. kind of. It's pretty obvious what this is, and it's extremely unlikely to ever change, but ideally should still map all codes (we care about) in a file somewhere for use around the whole app, just in case.
+    // TODO: Magic string alert... kind of. It's pretty obvious what this is, and it's extremely unlikely to ever change, but ideally should still map all codes (we care about) in a file somewhere for use around the whole app, just in case.
     if (e.code === "ArrowRight" && selectedIndex < shows.length - 1) {
       onRightMove();
     }
@@ -41,9 +46,9 @@ export const ShowsCarousel = () => {
   // Handle "page" scroll offset using a useEffect function. Every time the index changes, recalculate if we should scroll to a new page, and do so if needs be.
   useEffect(() => {
     requestAnimationFrame(() => {
-      const slidesVisible = 5;
       if (carouselContentRef.current) {
         const pageIndex = Math.floor(selectedIndex / slidesVisible);
+        // Uh-oh Magic Number alert, again a full css library would be great for shared values like this.
         const pageIndexOffsetPadding = isLargeScreen ? 128 : 64;
         // First page needs no additional offset as it has the css padding, but all other pages do so as to display the first item of that page where the first item was.
         const pageIndexOffset = pageIndex === 0 ? 0 : ((pageIndexOffsetPadding * 2) + (pageIndexOffsetPadding / 2)) * pageIndex;
@@ -53,7 +58,7 @@ export const ShowsCarousel = () => {
     });
   }, [selectedIndex]);
 
-  console.log({ shows, error, loading });
+  // TODO: Loading skeleton view here...
 
   return (
     <div className='show-carousel' ref={carouselContentRef}>
@@ -74,8 +79,15 @@ export const ShowsCarousel = () => {
         */}
           {
             shows.map((show, idx) => {
+              const pageIndex = Math.floor(selectedIndex / slidesVisible);
+              const shouldRenderImage = idx >= pageIndex * slidesVisible && idx <= pageIndex * slidesVisible + slidesVisible;
               return (
-                <ShowSlide key={show.id} show={show} selected={idx === selectedIndex} />
+                <ShowSlide
+                  key={show.id}
+                  show={show}
+                  selected={idx === selectedIndex}
+                  {...{ shouldRenderImage }}
+                />
               );
             })
           }

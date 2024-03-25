@@ -12,6 +12,7 @@ export type ShowsService = {
   error: boolean;
 };
 
+// TODO: No real reason why this hook can't initialise the context itself rather than pass it in. Would open the floor to debate on that one to decide what people thought was best practice.
 export const useShowsService = (context: ShowContext) => {
   // Here we will look to see if we have the data already, if not get it, if so return it.
   const [loading, setLoading] = useState(true);
