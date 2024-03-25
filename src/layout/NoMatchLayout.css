@@ -1,0 +1,25 @@
+.no-match {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-match-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-match-404 {
+  font-size: 32px;
+  border-right: 1px solid #fff;
+  color: #fff;
+  padding-right: 16px;
+  font-weight: 700;
+}
+
+.no-match-info {
+  padding-left: 16px;
+}

@@ -1,0 +1,24 @@
+/* Note to self: Images are 512 x 768 */
+.show-slide {
+  padding: 8px;
+  border-radius: 8px;
+  /*
+  Given the images in this instance are a known size, I am hardcoding the slide size here also (or rather, the aspect ratio given the 2 supported screen sizes)
+  Ideally, we would account for any image size and automatically size things in a way that our desired 6 images are shown.
+  I have thoughts on ways to do that, but I would consider that out of scope for the time being. Happy to discuss that at an interview stage however.
+  */
+  display: inline-flex;
+  width: calc(512px / 2.5 + 8);
+  height: calc(768px / 2.5);
+}
+
+.show-slide.selected {
+  border: 4px solid var(--primary);
+}
+
+@media (min-height: 1080px) {
+  .show-slide {
+    width: calc(512px / 1.7 + 8);
+    height: calc(768px / 1.7);
+  }
+}

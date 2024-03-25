@@ -1,0 +1,19 @@
+.show-carousel {
+  /* Make infinitely wide so below can do the scrolling. That's how carousels work. */
+  /* 
+  NOTE: This only works with zero margin/padding like we have here, if we had a padding,
+  we'd need to consider that. Further, if the padding was unknown, this just generally
+  wouldn't work and in all likelyhood flex would once again be our friend here (as if I hadn't already abused flexbox enough in this project!)
+  */
+  width: 100%;
+  /* Hidden in this instance as we want the scrolling to handled programatically as we cycle left and right */
+  overflow: hidden;
+}
+
+.show-carousel-content {
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+  display: flex;
+  /* Very basic animation so the scrolling looks nice */
+  transition: all linear 200ms;
+}

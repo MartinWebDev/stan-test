@@ -1,0 +1,56 @@
+:root {
+  --side-padding: 64px;
+}
+
+@media (min-height: 1080px) {
+  :root {
+    --side-padding: 128px;
+  }
+}
+
+.stan-home {
+}
+
+.stan-home-header {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+  padding: var(--side-padding);
+}
+
+.stan-logo {
+  width: 15vw;
+}
+
+.stan-home-filters {
+  display: flex;
+  gap: 64px;
+}
+
+.stan-home-filter-button {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stan-home-filter-button.active {
+  color: #fff;
+}
+
+/*
+Unusual to base "mobile first" media queries of the height rather than width, but given the target devices being TVs which are typically
+of fixed and known dimensions, this way just make reading the code easier. While we could use the width, EG: 1280px for a 720p screen,
+using the height in this manner just makes it slighly easier for the developer to instantly know which is which at first glance.
+*/
+@media (min-height: 1080px) {
+  .stan-home {
+  }
+
+  .stan-home-header {
+    gap: 128px;
+    padding: var(--side-padding);
+  }
+
+  .stan-home-filter-button {
+    font-size: 42px;
+  }
+}

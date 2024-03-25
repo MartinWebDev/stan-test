@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --background: #101010;
+  --foreground: #878787;
+  --primary: #0099fb;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 24px;
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/* Quick and simple styling for links. Kind of surprising that browsers still even have a default "visited" color these days. I mean, support the pseudo class sure, but the purple? Really? It's not 2005 anymore. */
+a,
+a:link {
+  color: var(--primary);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--primary);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--primary);
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: var(--primary);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+@media (min-height: 1080px) {
+  body {
+    font-size: 32px;
+  }
+}
