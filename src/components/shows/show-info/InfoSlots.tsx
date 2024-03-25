@@ -13,7 +13,7 @@ export const InfoSlots = ({ slots }: IInfoSlots) => {
     <div className='info-slots'>
       {slots.map(slot => {
         return (
-          <div>{slot}</div>
+          <div key={slot}>{slot}</div>
         );
       })}
     </div>

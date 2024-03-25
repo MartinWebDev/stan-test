@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Show } from '../../models/Show';
 import "./ShowSlide.css";
-import { useIntersectionObserver } from 'usehooks-ts';
 
 interface IShowSlide {
   show: Show;

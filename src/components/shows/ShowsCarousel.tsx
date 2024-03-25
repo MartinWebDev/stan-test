@@ -9,6 +9,7 @@ import { useSelectedIndex } from '../../hooks/useSelectedIndex';
 
 import "./ShowsCarousel.css";
 import { ShowSlide } from '../ShowCarousel/ShowSlide';
+import { ShowsCarouselSkeleton } from './ShowsCarouselSkeleton';
 
 // An unchanging value in terms of component state, but really shouldn't be here, should be in a config file where it's universally accessible by the rest of the app.
 const slidesVisible = 5;
@@ -49,7 +50,7 @@ export const ShowsCarousel = () => {
     requestAnimationFrame(() => {
       if (carouselContentRef.current) {
         const pageIndex = Math.floor(selectedIndex / slidesVisible);
-        // Uh-oh Magic Number alert, again a full css library would be great for shared values like this.
+        // Uh-oh Magic Number alert, again a css library would be great for shared values like this.
         const pageIndexOffsetPadding = isLargeScreen ? 128 : 64;
         // First page needs no additional offset as it has the css padding, but all other pages do so as to display the first item of that page where the first item was.
         const pageIndexOffset = pageIndex === 0 ? 0 : ((pageIndexOffsetPadding * 2) + (pageIndexOffsetPadding / 2)) * pageIndex;
@@ -57,8 +58,6 @@ export const ShowsCarousel = () => {
       }
     });
   }, [selectedIndex]);
-
-  // TODO: Loading skeleton view here...
 
   return (
     <div className='show-carousel' ref={carouselContentRef}>
@@ -90,6 +89,16 @@ export const ShowsCarousel = () => {
                 />
               );
             })
+          }
+
+          {/*
+          Similarly to the error state, at present, this will not show when there is data anyway, so it's ok in this instance to keep it inline.
+          Without doubt there is big room for refactor here. Move the carousel wrapper and control to another component, nest the children within,
+          toggle what those children are (data/skeleton) accordingly, and generally keep this file smaller and cleaner,
+          but given time constraints, this is something we can discuss at a later chat.
+          */}
+          {
+            loading && <ShowsCarouselSkeleton />
           }
         </div>
       </div>

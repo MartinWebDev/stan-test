@@ -1,0 +1,20 @@
+/*
+Perfect example of a need to refactor the carousel slightly.
+Just to be able to share these dimensions across the real view and the skeleton view.
+Will do if time, but time is tight.
+Personally I see more merit in taking it to discussion rather than force it in and take longer.
+*/
+.carousel-skeleton-slide {
+  padding: 8px;
+  border-radius: 8px;
+  display: inline-flex;
+  width: calc(512px / 2.5);
+  height: calc(768px / 2.5);
+}
+
+@media (min-height: 1080px) {
+  .carousel-skeleton-slide {
+    width: calc(512px / 1.7);
+    height: calc(768px / 1.7);
+  }
+}
