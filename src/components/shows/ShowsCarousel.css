@@ -8,12 +8,14 @@
   width: 100%;
   /* Hidden in this instance as we want the scrolling to handled programatically as we cycle left and right */
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 .show-carousel-content {
   padding-left: var(--side-padding);
   padding-right: var(--side-padding);
   display: flex;
-  /* Very basic animation so the scrolling looks nice */
-  transition: all linear 200ms;
+}
+.show-carousel-content-inner {
+  display: flex;
 }

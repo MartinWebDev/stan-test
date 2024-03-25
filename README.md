@@ -20,8 +20,8 @@ Webpack config is pretty basic, just setup in a way that will spit out the requi
 I feel I must professionally disagree. If plenty of round wheels exist, why create a square one?\
 To this end, rather than re-writing some popular functionality I have chosen to use the following things and my reasoning why.
 
-1. `@uidotdev/usehooks` - Normally I would choose usehook-ts, but that library does not contain a nice `useKeyPress` hook like this one does. It seems well supported with lots of regular downloads and recent releases, and as a bonus has no dependencies of its own to factor in. That being said however, the "experimental" branch is required to access the `useKeyPress` hook, so as such we should manually check the code in use and cast our opinion on it, and to me at least it looks to be written very much the same way I would do myself anyway, so it seems reasonable to use it in this case.
-2. `express` - Kind of required in a way, since the test required using the fetch api. Could use an online service, but a local server for this data is simple enough to just include it here and that also allows for more control over how the data is queried and returned.
+1. `usehook-ts` - Used to cut out unneccesary coding time for certain functionality. For example, we can make use of the useEventListener for detecting our keypres events.
+1. `express` - Kind of required in a way, since the test required using the fetch api. Could use an online service, but a local server for this data is simple enough to just include it here and that also allows for more control over how the data is queried and returned.
 
 # Overview of process
 
@@ -45,4 +45,5 @@ Started by putting together the basic layout with a few "component" assumptions 
 
 - In this app, css class names were carefully named to avoid conflicts. This is fine on a project so small, but ideally we'd want at least a basic module system setup so css classes are named on a component/module level basis and conflicts are therefore impossible.
 - Some sort of auto-refetch of the data after maybe a time limit, or after a certain number of navigations, etc. So if any new data became available while the user is browsing, that new data would eventually be available.
+- Better still, a proper api library would give us caching functionality, this could be used instead to automatically refetch the data whenever the local cache expires. Could implement a simple version with localStorage too, but given the small amount of data here, context works great, and is easily extended to include some sort of caching/storage if needs be in the future.
 - Some kind of css library would be nice, so as to make use of mixins, variables (outside of standard css variables), etc, but that would be a) additional work that would delay this mini project, and b) an additional library which was requested not to be used. Perhaps PostCSS, but honestly my view on that is that it should be renamed "Magic Strings: The Library", so maybe just sass as a minimum. (See note in assumptions/decisions above)

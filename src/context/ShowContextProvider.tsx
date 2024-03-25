@@ -354,8 +354,8 @@ const _ShowContext = createContext<ShowContext>(initial);
 
 // this is fine because we will export this wrapper so we can keep our provider code both clean, and contained here...
 export const ShowContextProvider = ({ children }: PropsWithChildren) => {
-  // const [shows, setShows] = useState<Show[]>([]); // During development, use this one to get those random errors and loading times,
-  const [shows, setShows] = useState<Show[]>(data); // and this one to not do that. This one makes creating the layout less annoying.
+  const [shows, setShows] = useState<Show[]>([]); // During development, use this one to get those random errors and loading times,
+  // const [shows, setShows] = useState<Show[]>(data); // and this one to not do that. This one makes creating the layout less annoying.
 
   return (
     <_ShowContext.Provider value={{ shows, setShows }}>

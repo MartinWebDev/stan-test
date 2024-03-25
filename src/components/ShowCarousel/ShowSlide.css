@@ -8,7 +8,7 @@
   I have thoughts on ways to do that, but I would consider that out of scope for the time being. Happy to discuss that at an interview stage however.
   */
   display: inline-flex;
-  width: calc(512px / 2.5 + 8);
+  width: calc(512px / 2.5);
   height: calc(768px / 2.5);
 }
 
@@ -18,7 +18,7 @@
 
 @media (min-height: 1080px) {
   .show-slide {
-    width: calc(512px / 1.7 + 8);
+    width: calc(512px / 1.7);
     height: calc(768px / 1.7);
   }
 }
