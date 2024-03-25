@@ -1,0 +1,60 @@
+.stan-show {
+  padding: var(--side-padding);
+}
+
+.stan-show-header {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+  padding-bottom: var(--side-padding);
+}
+
+.stan-show-content {
+  display: flex;
+  gap: 64px;
+  color: #fff;
+}
+
+.stan-show-image {
+}
+
+.stan-show-image > img {
+  width: 20vw;
+}
+
+.stan-show-info {
+}
+
+.stan-show-info-header {
+  margin-bottom: 64px;
+}
+
+.stan-show-info-header-title {
+  font-size: 52px;
+  line-height: 52px;
+  margin-bottom: 32px;
+}
+
+.stan-show-info-header-details {
+  /*
+  Caution zone: Using a line height smaller than the font itself makes for sizing the pipe height nice and easy, but could lead to overlapping text with the next line.
+  Only use in scenarios where you know without doubt the next line of text will be far enough away. In this instance, we have a large buffer created by the bottom padding in the show details.
+  */
+  line-height: 20px;
+}
+
+.stan-show-info-description {
+}
+
+@media (min-height: 1080px) {
+  .stan-show-header {
+    gap: 128px;
+    padding-bottom: var(--side-padding);
+  }
+}
+
+/*
+Didn't see any real merit in changing font sizes for the bigger screen here. 
+It displays really well at both 720 and 1080. It just has more empty space at the bottom of the screen at 1080, but it looks fine regardless.
+Filling space for the sake of filling space here would just result in massive text, especially considering we're developing on screens under 30" and it would likely be seen on at least 55+
+*/

@@ -1,0 +1,15 @@
+.info-slots {
+  display: flex;
+  gap: 16px;
+}
+
+.info-slots > div {
+  /* A border "pipe" always looks nicer than the actual character from the font. It just lines up nicer and doesn't look forced */
+  border-right: 2px solid #fff;
+  padding-right: 16px;
+}
+
+.info-slots > div:last-child {
+  border-right: none;
+  padding-right: 0;
+}

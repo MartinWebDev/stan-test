@@ -1,0 +1,23 @@
+.stan-logo {
+  width: 15vw;
+}
+
+.stan-home-filters {
+  display: flex;
+  gap: 64px;
+}
+
+.stan-home-filter-button {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.stan-home-filter-button.active {
+  color: #fff;
+}
+
+@media (min-height: 1080px) {
+  .stan-home-filter-button {
+    font-size: 42px;
+  }
+}

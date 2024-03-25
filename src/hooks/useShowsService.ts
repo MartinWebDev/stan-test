@@ -28,6 +28,7 @@ export const useShowsService = (context: ShowContext) => {
         // Updating the context will prompt a re-render, so this component need not worry about storing the data in any way.
         // It need only know if we've got the data or not, and fetch it if not. Let the context do what it should do.
         context.setShows(result);
+        setLoading(false);
       } else {
         // Very basic error handling for now, if statuscode is anything other than 200, set to error
         setLoading(false);

@@ -13,4 +13,5 @@ export type Show = {
   genre: Genre;
   year: number;
   language: Language;
+  seasons: number;
 };
