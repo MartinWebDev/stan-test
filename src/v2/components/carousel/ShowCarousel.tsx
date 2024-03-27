@@ -38,6 +38,8 @@ export const ShowCarousel = ({ shows, loading }: IShowCarousel) => {
   };
   useEventListener('keydown', handleKeyPress);
 
+  // NOTE: One nice advantage to this new carousel is that we could quickly change the scrolling method to try and keep the blue selection outline centered (except of course the ends).
+  // The system is already in place to support that, only the math need change.
   useEffect(() => {
     // Recalculate scroll position to keep highlight left)
     // Scroll left by tile width = selected index
