@@ -18,6 +18,7 @@ interface IShowCarousel {
 // ShowCarousel implements a more generic carousel component internally which handles the visual representation.
 // This component handles the logic and decides how far that child component should be scrolled.
 export const ShowCarousel = ({ shows, loading }: IShowCarousel) => {
+  const navigate = useNavigate();
   const [scrollAmount, setScrollAmount] = useState(0);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const { selectedIndex, onLeftMove, onRightMove } = useSelectedIndex();
@@ -33,7 +34,7 @@ export const ShowCarousel = ({ shows, loading }: IShowCarousel) => {
       const showId = shows[selectedIndex].id;
       const navigateTo = `/${showId.toString()}`;
       console.log('goto', navigateTo);
-      useNavigate()(navigateTo);
+      navigate(navigateTo);
     }
   };
   useEventListener('keydown', handleKeyPress);
