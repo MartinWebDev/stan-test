@@ -1,0 +1,14 @@
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  display: flex;
+}
+
+.carouselInner {
+  display: flex;
+}
+
+.carouselContent {
+  display: flex;
+}

@@ -1,3 +1,14 @@
+# V2 changes
+
+I wasn't entirely happy with the carousel system in the original so I felt the need to improve upon it with a better idea that occured to me.\
+Navigating to `http://localhost:3000/v2` will show the new version for comparison. This one emulates the scrolling system described below that my TV did much more closely,
+although currently does not show the edge of the 6th item, though this would be a trivial fix with the right width and padding settings.
+
+This version is also far more reusable and abstracts the actual carousel part away from the logic used to display the shows.\
+Currently it also does not remove images from the dom as the solution in the first version would still work here with a minor change. IE: Instead of unloading everything not on current "page"
+it would just need to load everything current in view which would just be "index + 5 more items". An exception would be required for the last items since the hightlight box starts to move.
+A simple if would cover this scenario. Alteratively, an IntersectionObserver would work here, but I would want to measure the impact on performance with this method.
+
 # Running the app
 
 Fire up mini server, just a crappy basic express server to spit out the show data. No error handling, nothing fancy,

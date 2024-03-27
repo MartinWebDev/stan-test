@@ -1,0 +1,29 @@
+/* v2 refactor, keep all variables here for easier reading. Importing css files as modules does not affect this. */
+:root {
+  --side-padding: 64px;
+}
+
+@media (min-height: 1080px) {
+  :root {
+    --side-padding: 128px;
+  }
+}
+
+.stanHomeHeader {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+  padding: var(--side-padding);
+}
+
+/*
+Unusual to base "mobile first" media queries of the height rather than width, but given the target devices being TVs which are typically
+of fixed and known dimensions, this way just make reading the code easier. While we could use the width, EG: 1280px for a 720p screen,
+using the height in this manner just makes it slighly easier for the developer to instantly know which is which at first glance.
+*/
+@media (min-height: 1080px) {
+  .stanHomeHeader {
+    gap: 128px;
+    padding: var(--side-padding);
+  }
+}
