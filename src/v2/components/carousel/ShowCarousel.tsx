@@ -59,7 +59,7 @@ export const ShowCarousel = ({ shows, loading }: IShowCarousel) => {
       <Carousel scrollBasis='pixels' scrollAmount={scrollAmount} onWidthChange={handleCarouselWidthChange}>
         {loading && Array(6).fill(0).map((_, idx) => {
           return (
-            <ShowCarouselSkeletonTile />
+            <ShowCarouselSkeletonTile key={`skele-${idx}`} />
           );
         })}
         {
