@@ -3,6 +3,7 @@ import { SkeletonBlock } from '../../../components/ux/SkeletonBlock';
 
 import styles from "./styles/ShowCarouselTile.module.css";
 
+// There's definitely better ways to do this in order to reuse more code without duplication, but sharing the css is pretty effecient, just not as efficient as it *could* be.
 export const ShowCarouselSkeletonTile = () => {
   return (
     <div className={styles.showTile}>
