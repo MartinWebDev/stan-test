@@ -18,7 +18,7 @@ export const StanShowsList = (props: IStanShowsList) => {
 
   return (
     <div className={styles.carousel}>
-      <ShowCarousel shows={shows} />
+      <ShowCarousel shows={shows} loading={loading} />
     </div>
   );
 };

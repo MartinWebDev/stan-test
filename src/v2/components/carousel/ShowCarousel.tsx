@@ -7,14 +7,17 @@ import { Show } from '../../../models/Show';
 
 import styles from "./styles/ShowCarousel.module.css";
 import { useNavigate } from 'react-router-dom';
+import { ShowCarouselSkeletonTile } from './ShowCarouselSkeletonTile';
 
 interface IShowCarousel {
   shows: Show[];
+  // Could re-access context at this level, but since it's only a single level of prop-drilling, this is quicker.
+  loading: boolean;
 }
 
 // ShowCarousel implements a more generic carousel component internally which handles the visual representation.
 // This component handles the logic and decides how far that child component should be scrolled.
-export const ShowCarousel = ({ shows }: IShowCarousel) => {
+export const ShowCarousel = ({ shows, loading }: IShowCarousel) => {
   const [scrollAmount, setScrollAmount] = useState(0);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const { selectedIndex, onLeftMove, onRightMove } = useSelectedIndex();
@@ -52,6 +55,11 @@ export const ShowCarousel = ({ shows }: IShowCarousel) => {
   return (
     <div id="carousel-wrapper" className={styles.carouselWrapper}>
       <Carousel scrollBasis='pixels' scrollAmount={scrollAmount} onWidthChange={handleCarouselWidthChange}>
+        {loading && Array(6).fill(0).map((_, idx) => {
+          return (
+            <ShowCarouselSkeletonTile />
+          );
+        })}
         {
           shows.map((show, idx) => {
             return (
