@@ -1,14 +1,3 @@
-# V2 changes
-
-I wasn't entirely happy with the carousel system in the original so I felt the need to improve upon it with a better idea that occured to me.\
-Navigating to `http://localhost:3000/v2` will show the new version for comparison. This one emulates the scrolling system described below that my TV did much more closely,
-although currently does not show the edge of the 6th item, though this would be a trivial fix with the right width and padding settings.
-
-This version is also far more reusable and abstracts the actual carousel part away from the logic used to display the shows.\
-Currently it also does not remove images from the dom as the solution in the first version would still work here with a minor change. IE: Instead of unloading everything not on current "page"
-it would just need to load everything current in view which would just be "index + 5 more items". An exception would be required for the last items since the hightlight box starts to move.
-A simple if would cover this scenario. Alteratively, an IntersectionObserver would work here, but I would want to measure the impact on performance with this method.
-
 # Running the app
 
 Fire up mini server, just a crappy basic express server to spit out the show data. No error handling, nothing fancy,
@@ -26,13 +15,14 @@ npm run start
 
 Webpack config is pretty basic, just setup in a way that will spit out the required files for this test's brief.
 
-# You should avoid using any other JS/CSS frameworks/libraries.
+# Minor exceptions to avoiding 3rd party libraries
 
-I feel I must professionally disagree. If plenty of round wheels exist, why create a square one?\
-To this end, rather than re-writing some popular functionality I have chosen to use the following things and my reasoning why.
+Very small minor helper function have been included for the sake of saving time and so it does not appear as if I am plagerising someone else's work. If plenty of round wheels exist, why create a square one?\
+To this end, rather than re-writing some popular functionality I have chosen to use the following things and my reasoning why. The actual implementation of the requested functionality is, as you will see, still entirely my own work. These small helpers and hooks are merely time savers which I would have only written the same way as this anyway. I want to be open and transparent on this rather than risk the accusation that I simply copy/pasted those function.
 
 1. `usehook-ts` - Used to cut out unneccesary coding time for certain functionality. For example, we can make use of the useEventListener for detecting our keypres events.
-1. `express` - Kind of required in a way, since the test required using the fetch api. Could use an online service, but a local server for this data is simple enough to just include it here and that also allows for more control over how the data is queried and returned.
+2. `classnames` - Tiny util helper function for binding css classes programatically.
+3. `express` - Kind of required in a way, since the test required using the fetch api. Could use an online service, but a local server for this data is simple enough to just include it here and that also allows for more control over how the data is queried and returned.
 
 # Overview of process
 
