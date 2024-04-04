@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames/bind';
-import { Show } from '../../../models/Show';
+import { Show } from '../../models/Show';
 
 import styles from "./styles/ShowCarouselTile.module.css";
 import { useIntersectionObserver } from 'usehooks-ts';

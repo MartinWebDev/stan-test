@@ -1,12 +1,5 @@
 .stan-show {
-  padding: var(--side-padding);
-}
-
-.stan-show-header {
-  display: flex;
-  align-items: center;
-  gap: 96px;
-  padding-bottom: var(--side-padding);
+  padding: 0 var(--side-padding);
 }
 
 .stan-show-content {
@@ -15,14 +8,8 @@
   color: #fff;
 }
 
-.stan-show-image {
-}
-
 .stan-show-image > img {
   width: 20vw;
-}
-
-.stan-show-info {
 }
 
 .stan-show-info-header {

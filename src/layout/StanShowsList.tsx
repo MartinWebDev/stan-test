@@ -1,6 +1,6 @@
 import React from 'react';
 import { UnknownError } from './UnknownError';
-import { ShowCarousel } from './components/carousel/ShowCarousel';
+import { ShowCarousel } from '../components/carousel/ShowCarousel';
 import { useShowsService } from '../hooks/useShowsService';
 import { useShowContext } from '../context/ShowContextProvider';
 

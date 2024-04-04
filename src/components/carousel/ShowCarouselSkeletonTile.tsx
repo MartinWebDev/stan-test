@@ -1,5 +1,5 @@
 import React from 'react';
-import { SkeletonBlock } from '../../../components/ux/SkeletonBlock';
+import { SkeletonBlock } from '../ux/SkeletonBlock';
 
 import styles from "./styles/ShowCarouselTile.module.css";
 

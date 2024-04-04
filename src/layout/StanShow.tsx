@@ -53,10 +53,6 @@ export const StanShow = () => {
   // As such, instead of abstracting the layout away and having templates for the data vs skeleton views, I've done it all inline in this instance.
   return (
     <div className='stan-show'>
-      <div className='stan-show-header'>
-        <HeaderWithFilters />
-      </div>
-
       {error && (<div>An unknown error occurred. Please try again later.</div>)}
 
       <div className='stan-show-content'>

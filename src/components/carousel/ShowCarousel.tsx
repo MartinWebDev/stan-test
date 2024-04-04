@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useEventListener } from 'usehooks-ts';
 import { Carousel } from './Carousel';
 import { ShowCarouselTile } from './ShowCarouselTile';
-import { useSelectedIndex } from '../../../hooks/useSelectedIndex';
-import { Show } from '../../../models/Show';
+import { useSelectedIndex } from '../../hooks/useSelectedIndex';
+import { Show } from '../../models/Show';
 
 import styles from "./styles/ShowCarousel.module.css";
 import { useNavigate } from 'react-router-dom';
