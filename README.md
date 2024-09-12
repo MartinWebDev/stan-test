@@ -1,3 +1,8 @@
+# A warning
+
+**A warning to any potention employee or contractor who may have stumbled across this repo when interviewing for Stan TV. The team and management there have a very unusual process for assessing your submission! It is not the normal process of assessing your ability to approach a given task, but more a test of your ability to follow instruction, to the letter! No matter how good your reasoning and rationale for a decision made, they mark it down as a bad thing! This is not normal when testing for senior developers, and this should act as a cautionary tale when you are considering working for this company. You are expected to be a cog in a machine, not an independent thinker or problem solver!**
+
+
 # Running the app
 
 Fire up mini server, just a crappy basic express server to spit out the show data. No error handling, nothing fancy,
